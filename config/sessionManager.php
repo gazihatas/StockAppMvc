@@ -40,9 +40,11 @@ class sessionManager extends model
     public function getUserInfo()
     {
         if($this->isLogged()) :
-            $sorgu = $this->db->query("select * from uyeler where email = ? and password = ?");
-            $sorgu->execute(array($_SESSION['email'], $_SESSION['password']));
-            return $sorgu->fetch(PDO::FETCH_ASSOC);
+            $email = $_SESSION['email'];
+            $password = $_SESSION['password'];
+            $query = $this->db->prepare("select * from uyeler where email = ? and password = ?");
+            $query->execute(array($email,$password));
+            return $query->fetch(PDO::FETCH_ASSOC);
         else :
             return false;
         endif;
