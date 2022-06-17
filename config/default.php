@@ -8,7 +8,7 @@ define("DB_NAME", "test");
 define("DB_USERNAME","root");
 define("DB_PASSWORD","123456");
 
-define('SITE_URL','http://udemyapp.test');
+define('SITE_URL','http://localhost/StockAppMvc');
 
 define('CSS_PATH',SITE_URL.'/public/css');
 define('JS_PATH',SITE_URL.'/public/js');
