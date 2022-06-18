@@ -6,26 +6,26 @@
             <!-- left column -->
             <div class="col-md-12">
                 <?php
-                    if (isset($_SESSION['statu'])) :
-                        echo $_SESSION['statu'];
-                    endif;
+                if (isset($_SESSION['statu'])) :
+                    echo $_SESSION['statu'];
+                endif;
                 ?>
 
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Yeni Kategori Oluştur</h3>
+                        <h3 class="box-title">"<?=$params['data']['ad'];?>" Düzenle</h3>
                     </div>
 
-                    <form role="form" action="<?=SITE_URL;?>/category/send" method="post">
+                    <form role="form" action="<?=SITE_URL;?>/category/update/<?=$params['data']['id'];?>" method="post">
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Kategori Adı:</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" name="ad">
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="ad" value="<?=$params['data']['ad'];?>">
                             </div>
                         </div>
 
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Ekle</button>
+                            <button type="submit" class="btn btn-primary">Düzenle</button>
                         </div>
                     </form>
                 </div>
