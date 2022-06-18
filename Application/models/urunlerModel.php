@@ -19,4 +19,22 @@ class urunlerModel extends model
             return false;
         endif;
     }
+
+    public function getData($id)
+    {
+        $query = $this->db->prepare("select * from urunler where id = ?");
+        $query->execute(array($id));
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function updateData($id,$ad,$kategoriId,$ozellik)
+    {
+        $query = $this->db->prepare("update urunler set ad =?, kategoriId = ?, ozellikler = ? where id = ?");
+        $update = $query->execute(array($ad,$kategoriId,$ozellik,$id));
+        if ($update) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
 }

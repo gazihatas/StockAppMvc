@@ -14,17 +14,19 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Ad</th>
+                                <th>Kategori</th>
                                 <th>Düzenle</th>
                                 <th>Kaldır</th>
                             </tr>
 
                             <?php
                             if (count($params['data'])!=0) :
-                                foreach ($params['data'] as $key => $value) : ?>
-
+                                foreach ($params['data'] as $key => $value) :
+                                $categoryInfo = $this->model('categoryModel')->getData($value['kategoriId']); ?>
                                     <tr>
                                         <td><?=$value['id'];?></td>
                                         <td><?=$value['ad'];?></td>
+                                        <td><?=$categoryInfo['ad'];?></td>
                                         <td><a href="<?=SITE_URL;?>/urunler/edit/<?=$value['id'];?>">Düzenle</a></td>
                                         <td><a href="<?=SITE_URL;?>/urunler/delete/<?=$value['id'];?>">Sil</a></td>
                                     </tr>
