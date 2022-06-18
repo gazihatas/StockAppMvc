@@ -37,4 +37,9 @@ class urunlerModel extends model
             return false;
         endif;
     }
+    public function getDelete($id)
+    {
+        $query = $this->db->prepare("delete from urunler where id=?");
+        $query->execute(array($id));
+    }
 }

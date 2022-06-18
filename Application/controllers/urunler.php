@@ -106,4 +106,15 @@ class urunler extends controller
             exit("Yasaklı Giriş");
         endif;
     }
+
+    public function delete($id)
+    {
+        if (!$this->sessionManager->isLogged()) :
+            helper::redirect(SITE_URL);
+            die();
+        endif;
+
+        $this->model('urunlerModel')->getDelete($id);
+        helper::redirect(SITE_URL."/urunler");
+    }
 }
