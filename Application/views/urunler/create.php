@@ -32,6 +32,12 @@
                                 </select>
                             </div>
 
+                            <div class="form-group">
+                                <label style="display: block">Ürün Özellikleri</label>
+                                <button id="yeniEkle" class="btn btn-info" type="button">Yeni Özellik Ekle</button>
+                                <div id="urunOzellikAlani"></div>
+                            </div>
+
                         </div>
 
                         <div class="box-footer">
@@ -44,3 +50,23 @@
         </div>
     </section>
 </div>
+
+<script src="<?=JQUERY_PATH;?>"></script>
+
+<script>
+    $(document).ready(function() {
+        let i = $(".selectOzellik").length;
+        $("#yeniEkle").click(function () {
+            let temp = `<div class="col-md-6">
+                               <label>Ürün Özellik Adı:</label>
+                               <input type="text" class="form-control selectOzellik" name="ozellik[${i}][name]">
+                          </div>
+                          <div class="col-md-6">
+                               <label>Ürün Özellik Değeri:</label>
+                               <input type="text" class="form-control selectOzellik" name="ozellik[${i}][value]">
+                          </div>`;
+            $("#urunOzellikAlani").append(temp)
+            i++;
+        })
+    })
+</script>

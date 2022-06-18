@@ -12,6 +12,7 @@ define('SITE_URL','http://localhost/StockAppMvc');
 
 define('CSS_PATH',SITE_URL.'/public/css');
 define('JS_PATH',SITE_URL.'/public/js');
+define('JQUERY_PATH',SITE_URL.'/public/jquery/jquery-3.6.0.min.js');
 define('IMG_PATH',SITE_URL.'/public/img');
 define('BOWER_PATH',SITE_URL.'/public/bower_components');
 define('PLUGIN_PATH',SITE_URL."/public/plugins");
