@@ -19,4 +19,28 @@ class musterilerModel extends model
             return false;
         endif;
     }
+
+    public function getData($id)
+    {
+        $query = $this->db->prepare("select * from musteriler where id = ?");
+        $query->execute(array($id));
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function updateData($id,$ad,$soyad,$sirket,$email,$telefon,$adres,$tc,$notu)
+    {
+        $query = $this->db->prepare("update musteriler set ad = ?, soyad = ?, sirket = ?, email = ?, telefon = ?, adres = ?, tc = ?, notu = ? where id = ?");
+        $update = $query->execute(array($ad,$soyad,$sirket,$email,$telefon,$adres,$tc,$notu,$id));
+        if ($update) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
+
+    public function delete($id)
+    {
+        $query = $this->db->prepare("delete from musteriler where id = ?");
+        $query->execute(array($id));
+    }
 }
