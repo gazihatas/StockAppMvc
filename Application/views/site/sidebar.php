@@ -44,6 +44,20 @@
                 </ul>
             </li>
 
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>MÜŞTERİLER</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?=SITE_URL;?>/musteriler/create"><i class="fa fa-circle-o"></i> Yeni Müşteri Oluştur</a></li>
+                    <li><a href="<?=SITE_URL;?>/musteriler/index"><i class="fa fa-circle-o"></i> Müşteri Listesi</a></li>
+                </ul>
+            </li>
+
             <li>
                 <a href="pages/calendar.html">
                     <i class="fa fa-calendar"></i> <span>Calendar</span>
