@@ -58,6 +58,20 @@
                 </ul>
             </li>
 
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>STOK İŞLEMLERİ</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?=SITE_URL;?>/stok/create"><i class="fa fa-circle-o"></i> Yeni Stok İşlemi Oluştur</a></li>
+                    <li><a href="<?=SITE_URL;?>/stok/index"><i class="fa fa-circle-o"></i> Stok İşlemleri Listesi</a></li>
+                </ul>
+            </li>
+
             <li>
                 <a href="pages/calendar.html">
                     <i class="fa fa-calendar"></i> <span>Calendar</span>
