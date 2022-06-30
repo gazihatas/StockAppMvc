@@ -54,7 +54,7 @@
 
                             <div class="form-group">
                                 <label for="example1">İşlem Seçimi:</label>
-                                <select name="urun_id"  class="form-control">
+                                <select name="islem_tipi"  class="form-control">
                                     <option value="0">Stok Giriş</option>
                                     <option value="1">Stok Çıkış</option>
                                 </select>

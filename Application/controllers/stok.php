@@ -71,19 +71,56 @@ class stok extends controller
         endif;
 
         $data = $this->model('stokModel')->getData($id);
+        $urunler = $this->model('urunlerModel')->listview();
+        $musteriler = $this->model('musterilerModel')->listview();
+
         $this->render('site/header');
         $this->render('site/sidebar');
-        $this->render('stok/edit',['data'=>$data]);
+        $this->render('stok/edit',['data'=>$data,'urunler'=>$urunler,'musteriler'=>$musteriler]);
         $this->render('site/footer');
     }
 
     public function update($id)
     {
+        if(!$this->sessionManager->isLogged()) :
+            helper::redirect(SITE_URL);
+            die();
+        endif;
 
+        if($_POST) :
+            $urun_id = intval($_POST['urun_id']);
+            $musteri_id = intval($_POST['musteri_id']);
+            $islem_tipi = intval($_POST['islem_tipi']);
+            $adet = intval($_POST['adet']);
+            $fiyat = helper::cleaner($_POST['adet']);
+
+            if ($adet!=0 and $fiyat !=0) :
+                $insert = $this->model('stokModel')->updateData($id,$urun_id,$musteri_id,$islem_tipi,$adet,$fiyat);
+                if ($insert) :
+                    helper::flashData("statu","Stok Başarı ile Düzenlendi");
+                    helper::redirect(SITE_URL."/stok/edit/".$id);
+                else :
+                    helper::flashData("statu","Stok Düzenlenemedi");
+                    helper::redirect(SITE_URL."/stok/edit/".$id);
+                endif;
+            else :
+                helper::flashData("statu","Stok fiyat ve adeti boş bırakılamaz");
+                helper::redirect(SITE_URL."/stok/edit/".$id);
+            endif;
+
+        else :
+            exit("Yasaklı Giriş");
+        endif;
     }
 
     public function delete($id)
     {
+        if(!$this->sessionManager->isLogged()) :
+            helper::redirect(SITE_URL);
+            die();
+        endif;
 
+        $query = $this->model('stokModel')->getDelete($id);
+        helper::redirect(SITE_URL."/stok");
     }
 }
