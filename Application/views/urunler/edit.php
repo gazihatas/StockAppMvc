@@ -6,9 +6,7 @@
             <!-- left column -->
             <div class="col-md-12">
                 <?php
-                if (isset($_SESSION['statu'])) :
-                    echo $_SESSION['statu'];
-                endif;
+                 helper::flashDataView("statu");
                 ?>
 
                 <div class="box box-primary">

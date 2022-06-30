@@ -25,5 +25,15 @@ class helper
      {
          $_SESSION[$key] = $value;
      }
+
+     static function flashDataView($key)
+     {
+         if (isset($_SESSION[$key])) :
+             $sonuc = $_SESSION[$key];
+             unset($_SESSION[$key]);
+             echo $sonuc;
+         endif;
+     }
+
 }
 ?>
